@@ -102,7 +102,7 @@ public class DefaultJiraClientTest {
     @Test
     public void getProjectsParseException(){
         doReturn(new ResponseEntity<>("{}", HttpStatus.OK)).when(rest).exchange(contains("api/2/project"), eq(HttpMethod.GET), Matchers.any(HttpEntity.class), eq(String.class));
-        ParseException excep = new ParseException("org.json.simple.JSONObject cannot be cast to org.json.simple.JSONArray",0);
+        ParseException excep = new ParseException("class org.json.simple.JSONObject cannot be cast to class org.json.simple.JSONArray",0);
 
         try {
             defaultJiraClient.getProjects();
